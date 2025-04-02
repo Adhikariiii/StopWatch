@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font: bold;
+  font-size: 1rem;
+}
+.mainContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 500px;
+  border: 7px solid #242424;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  font-size: 3rem;
+  border-radius: 100px;
+  padding-bottom: 10px;
+  background-color: #60435f;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+span {
+  color: #fdf7fa;
+  font-size: 5rem;
+}
+.buttonContainer {
+  margin-top: 30px;
+  font-size: 1rem;
+}
+button {
+  height: 40px;
+  width: 80px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+.startButton {
+  background-color: #d67ab1;
+}
+.stopButton {
+  background-color: #e2a3c7;
+}
+.resetButton {
+  background-color: #a8dcd9;
+}
