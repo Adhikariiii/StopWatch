@@ -1,42 +1,44 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, use } from "react";
 export default function StopWatch() {
   const [isRunning, setIsRunning] = useState(false);
-  const [isEllapsed, setIsEllapsed] = useState(0);
+  const [Ellapsed, setEllapsed] = useState(0);
   const intervalIdRef = useRef(null);
   const startTimeRef = useRef(0);
 
   useEffect(() => {
     if (isRunning) {
-      startTimeRef.current = Date.now() - isEllapsed;
+      startTimeRef.current = Date.now() - Ellapsed;
       intervalIdRef.current = setInterval(() => {
-        setIsEllapsed(Date.now() - startTimeRef.current);
+        setEllapsed(Date.now() - startTimeRef.current);
       }, 10);
     } else {
       clearInterval(intervalIdRef.current);
     }
-
-    return () => clearInterval(intervalIdRef.current);
+    return () => {
+      clearInterval(intervalIdRef.current);
+    };
   }, [isRunning]);
 
   function start() {
     setIsRunning(true);
-
-    startTimeRef.current = new Date() - isEllapsed;
+    startTimeRef.current = Date.now() - Ellapsed;
   }
-
   function stop() {
     setIsRunning(false);
   }
   function reset() {
+    setEllapsed(0);
     setIsRunning(false);
-    setIsEllapsed(0);
   }
   function formatTime() {
-    let hours = Math.floor(isEllapsed / (1000 * 60 * 60));
-    let minutes = Math.floor((isEllapsed / (1000 * 60 * 60)) % 60);
-    let seconds = Math.floor((isEllapsed / 1000) % 60);
-    let milliSeconds = Math.floor((isEllapsed % 1000) / 10);
-    return `${hours}:${minutes}:${seconds}:${milliSeconds}`;
+    let hours = Math.floor(Ellapsed / (1000 * 60 * 60));
+    let minutes = Math.floor((Ellapsed / (1000 * 60 * 60)) % 60);
+    let seconds = Math.floor((Ellapsed / 1000) % 60);
+    let milliSeconds = Math.floor((Ellapsed % 1000) / 10);
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+    milliSeconds = String(milliSeconds).padStart(2, "0");
+    return `${minutes}:${seconds}:${milliSeconds}`;
   }
   return (
     <>
