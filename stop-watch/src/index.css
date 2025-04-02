@@ -5,6 +5,7 @@ body {
   justify-content: center;
   font: bold;
   font-size: 1rem;
+  background-color: #242424;
 }
 .mainContainer {
   margin-top: 10px;
@@ -20,7 +21,7 @@ body {
   border-radius: 100px;
   padding-bottom: 10px;
   background-color: #60435f;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  box-shadow: 1px 1px 2px 1px whitesmoke;
 }
 span {
   color: #fdf7fa;
